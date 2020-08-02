@@ -12,8 +12,7 @@
 import { inject, Ref } from "vue";
 export default {
   setup() {
-    const asideVisible = inject<Ref<boolean>>("xxx");
-    console.log("topnav's aside visible: " + asideVisible.value);
+    const asideVisible = inject<Ref<boolean>>("asideVisible");
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };

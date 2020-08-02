@@ -32,8 +32,7 @@ export default {
     Topnav,
   },
   setup() {
-    const asideVisible = inject<Ref<boolean>>("xxx");
-    console.log("Doc's aside visible: " + asideVisible.value);
+    const asideVisible = inject<Ref<boolean>>("asideVisible");
     return { asideVisible };
   },
 };
