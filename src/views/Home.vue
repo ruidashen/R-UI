@@ -5,8 +5,8 @@
       <h1>Rei UI</h1>
       <h2>A super impressive UI library</h2>
       <p class="actions">
-        <a>GitHub</a>
-        <a>Get Started</a>
+        <a href="https://www.github.com">GitHub</a>
+        <router-link to="/doc">Get Started</router-link>
       </p>
     </div>
   </div>
