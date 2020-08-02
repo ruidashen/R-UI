@@ -1,17 +1,14 @@
 <template>
   <div>
-    hi
-    <Ruida />
+    Nav Bar |
+    <router-link to="/">Ruida</router-link>|
+    <router-link to="/xxx">Ruida 2</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Ruida from "./components/Ruida.vue";
-
 export default {
   name: "App",
-  components: {
-    Ruida,
-  },
 };
 </script>
