@@ -2,7 +2,7 @@
   <div>
     <Topnav />
     <div class="content">
-      <aside>
+      <aside v-if="asideVisible">
         <h2>Components</h2>
         <ol>
           <li>
@@ -24,11 +24,38 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Topnav from "../components/Topnav.vue";
+import { Ref, inject } from "vue";
 export default {
   components: {
     Topnav,
   },
+  setup() {
+    const asideVisible = inject<Ref<boolean>>("xxx");
+    console.log("Doc's aside visible: " + asideVisible.value);
+    return { asideVisible };
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+aside {
+  background-color: lightblue;
+  width: 160px;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 70px;
+  > h2 {
+    margin-bottom: 4px;
+  }
+
+  > ol {
+    > li {
+      padding: 4px;
+    }
+  }
+}
+</style>
