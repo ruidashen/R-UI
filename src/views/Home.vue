@@ -21,4 +21,36 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+$h: 28px;
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightgreen;
+  padding: 100px 0;
+
+  h1,
+  h2 {
+    margin: 0.5rem;
+  }
+
+  .actions {
+    padding: 8px 0;
+
+    a {
+      margin: 0 8px;
+      background: #fff;
+      display: inline-block;
+      height: $h;
+      line-height: $h;
+      border-radius: $h / 2;
+      padding: 0 8px;
+    }
+  }
+}
+</style>
+
 
