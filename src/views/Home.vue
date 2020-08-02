@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="topnav">
-      <div class="logo">Logo</div>
-      <ul class="menu">
-        <li>item 1</li>
-        <li>item 2</li>
-      </ul>
-    </div>
+    <Topnav />
     <div class="banner">
       <h1>Rei UI</h1>
       <h2>A super impressive UI library</h2>
@@ -18,25 +12,13 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.topnav {
-  background: pink;
-  display: flex;
-  padding: 16px;
+<script>
+import Topnav from "../components/Topnav.vue";
+export default {
+  components: {
+    Topnav,
+  },
+};
+</script>
 
-  > .logo {
-    max-width: 6em;
-    margin-right: auto;
-  }
 
-  > .menu {
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-
-    > li {
-      margin: 0 1em;
-    }
-  }
-}
-</style>
