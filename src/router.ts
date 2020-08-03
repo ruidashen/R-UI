@@ -24,7 +24,3 @@ export const router = createRouter({
     ]
 
 });
-
-router.afterEach((to, from, next) => {
-    console.log('router changed')
-})
