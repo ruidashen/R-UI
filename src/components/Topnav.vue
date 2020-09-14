@@ -1,17 +1,30 @@
 <template>
   <div class="topnav">
-    <div class="logo">Logo</div>
+    <router-link to="/" class="logo">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-shanguang" />
+      </svg>
+    </router-link>
     <ul class="menu">
-      <li>item 1</li>
-      <li>item 2</li>
+      <li>
+        <router-link to="/doc/switch">Docs</router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+      <use xlink:href="#icon-menu" />
+    </svg>
   </div>
 </template>
 
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>("asideVisible");
     const toggleMenu = () => {
@@ -24,7 +37,11 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
+  .logo svg {
+    width: 32px;
+    height: 32px;
+    color: #fea701;
+  }
   display: flex;
   padding: 16px;
   position: fixed;
@@ -44,19 +61,22 @@ export default {
 
     > li {
       margin: 0 1em;
+      > a {
+        color: white;
+      }
     }
   }
 
   > .toggleAside {
     display: inline-block;
-    width: 24px;
+    width: 32px;
     height: 24px;
-    background-color: red;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    background: fade-out(black, 0.9);
   }
   @media (max-width: 500px) {
     > .menu {
