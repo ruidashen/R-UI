@@ -2,11 +2,11 @@
   <div class="top-nav-and-banner">
     <Topnav />
     <div class="banner">
-      <h1>Rei UI</h1>
+      <h1>R UI</h1>
       <h2>A super impressive UI library</h2>
       <p class="actions">
-        <a href="https://www.github.com">GitHub</a>
-        <router-link to="/doc/switch">Get Started</router-link>
+        <a href="https://github.com/ruidashen/R-UI">GitHub</a>
+        <router-link to="/doc/">Get Started</router-link>
       </p>
     </div>
   </div>
@@ -58,6 +58,7 @@ $border-radius: 4px;
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .banner {
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +88,7 @@ $border-radius: 4px;
 
 .features {
   margin: 64px auto;
-  width: 400px;
+  padding: 0 16px;
   h3,
   p {
     color: black;
@@ -97,7 +98,6 @@ $border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     > li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;
@@ -126,11 +126,21 @@ $border-radius: 4px;
 
   @media (min-width: 800px) {
     width: 800px;
+
+    > ul {
+      > li {
+        width: 50%;
+      }
+    }
   }
   @media (min-width: 1200px) {
     width: 1200px;
+
+    > ul {
+      > li {
+        width: 33.3333%;
+      }
+    }
   }
 }
 </style>
-
-

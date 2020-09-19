@@ -1,5 +1,5 @@
 <template>
-  <div class="topnav">
+  <div class="topnav" :class="{ 'with-background': isInDocs }">
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-shanguang" />
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { inject, Ref } from "vue";
+import { inject, ref, Ref, watchEffect } from "vue";
 export default {
   props: {
     toggleMenuButtonVisible: {
@@ -30,13 +30,33 @@ export default {
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return { toggleMenu };
+    const isInDocs = ref(false);
+    watchEffect(() => {
+      isInDocs.value = document.URL.includes("doc");
+    });
+    return { toggleMenu, isInDocs };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.topnav.with-background {
+  background: rgb(85, 77, 171);
+  background: linear-gradient(
+    0deg,
+    rgba(85, 77, 171, 1) 0%,
+    rgba(99, 85, 250, 1) 100%
+  );
+}
 .topnav {
+  .with-background {
+    background: rgb(85, 77, 171);
+    background: linear-gradient(
+      0deg,
+      rgba(85, 77, 171, 1) 0%,
+      rgba(99, 85, 250, 1) 100%
+    );
+  }
   .logo svg {
     width: 32px;
     height: 32px;
@@ -62,7 +82,7 @@ export default {
     > li {
       margin: 0 1em;
       > a {
-        color: white;
+        color: #fea701;
       }
     }
   }
@@ -76,8 +96,9 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
+    background: white;
   }
+
   @media (max-width: 500px) {
     > .menu {
       display: none;
@@ -85,7 +106,6 @@ export default {
     > .logo {
       margin: 0 auto;
     }
-
     > .toggleAside {
       display: inline-block;
     }

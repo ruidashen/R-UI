@@ -3,6 +3,18 @@
     <Topnav class="nav" toggleMenuButtonVisible />
     <div class="content">
       <aside v-if="asideVisible">
+        <h2>Docs</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/intro">Intro</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">Install</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">Get Started</router-link>
+          </li>
+        </ol>
         <h2>Components</h2>
         <ol>
           <li>
@@ -73,7 +85,6 @@ export default {
 aside {
   background: lightblue;
   width: 165px;
-  padding: 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -82,10 +93,17 @@ aside {
   z-index: 9;
   > h2 {
     margin-bottom: 4px;
+    padding: 0 16px;
   }
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        padding: 4px 16px;
+        display: block;
+      }
+      .router-link-active {
+        background: white;
+      }
     }
   }
 }
