@@ -79,11 +79,13 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
+    padding-left: 32px;
   }
 }
 
 aside {
-  background: lightblue;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 165px;
   position: fixed;
   top: 0;
@@ -102,7 +104,7 @@ aside {
         display: block;
       }
       .router-link-active {
-        background: white;
+        background: #f2f2f2;
       }
     }
   }

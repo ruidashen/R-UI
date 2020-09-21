@@ -1,5 +1,5 @@
 <template>
-  <div class="topnav" :class="{ 'with-background': isInDocs }">
+  <div class="topnav" :class="{ 'with-background': isInDocs }" ref="topnav">
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-shanguang" />
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { inject, ref, Ref, watchEffect } from "vue";
+import { inject, onMounted, ref, Ref, watchEffect } from "vue";
 export default {
   props: {
     toggleMenuButtonVisible: {
@@ -26,15 +26,20 @@ export default {
     },
   },
   setup() {
+    const topnav = ref<HTMLDivElement>(null);
     const asideVisible = inject<Ref<boolean>>("asideVisible");
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
     const isInDocs = ref(false);
-    watchEffect(() => {
-      isInDocs.value = document.URL.includes("doc");
+    onMounted(() => {
+      console.log(topnav);
+      isInDocs.value =
+        document.URL.includes("doc") &&
+        topnav.value.getBoundingClientRect().width <= 500;
     });
-    return { toggleMenu, isInDocs };
+
+    return { toggleMenu, isInDocs, topnav };
   },
 };
 </script>
