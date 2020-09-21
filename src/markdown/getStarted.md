@@ -1,15 +1,16 @@
 # Get Started
 
-Please [install](#/doc/install) this library
-Import our library in your code:
+Please [install](#/doc/install) this R-UI
+
+Import R-UI in your code:
 
 ```
 import {Button, Tabs, Switch, Dialog} from "r-ui"
 ```
 
-then you can use my components.
+then you can use the components.
 
-## Vue single component
+## Single component
 
 Code example
 
