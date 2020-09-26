@@ -5,8 +5,8 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="showCode" v-if="codeVisible">Hide code</Button>
-      <Button @click="hideCode" v-else>Show code</Button>
+      <Button @click="hideCode" v-if="codeVisible">Hide code</Button>
+      <Button @click="showCode" v-else>Show code</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre class="language-html" v-html="html" />
