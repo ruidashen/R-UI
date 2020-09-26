@@ -9,6 +9,12 @@
       <Button @click="showCode" v-else>Show code</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
+      <p>
+        In your code please import the components from "rui-2020".
+        <br>
+        For example:
+        <pre class="language-javascript">import {Switch} from "rui-2020"</pre>
+      </p>
       <pre class="language-html" v-html="html" />
     </div>
   </div>
