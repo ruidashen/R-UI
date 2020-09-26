@@ -10,9 +10,9 @@ import {Button, Tabs, Switch, Dialog} from "rui-2020"
 import "rui-2020/dist/lib/rui.css";
 ```
 
-then you can use my components.
+then you can use the components.
 
-## Vue single component
+## Single component
 
 Code example
 
