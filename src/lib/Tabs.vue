@@ -45,7 +45,8 @@ export default {
     });
 
     defaults.forEach((tag) => {
-      if (tag.type !== Tab) {
+      // @ts-ignore
+      if (tag.type.name !== Tab.name) {
         throw new Error("<Tabs> can only contain <Tab> subcomponents");
       }
     });
