@@ -3,16 +3,26 @@
     <div class="rui-tabs-nav" ref="container">
       <div
         class="rui-tabs-nav-item"
-        v-for="(t,index) in titles"
+        v-for="(t, index) in titles"
         :key="index"
-        :class="{selected : t===selected}"
+        :class="{ selected: t === selected }"
         @click="select(t)"
-        :ref="el => {if (t===selected) selectedItem = el}"
-      >{{t}}</div>
+        :ref="
+          (el) => {
+            if (t === selected) selectedItem = el;
+          }
+        "
+      >
+        {{ t }}
+      </div>
       <div class="rui-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="rui-tabs-content">
-      <component class="rui-tabs-content-item" :is="current" :key="current.props.title" />
+      <component
+        class="rui-tabs-content-item"
+        :is="current"
+        :key="current.props.title"
+      />
     </div>
   </div>
 </template>
@@ -34,14 +44,17 @@ export default {
     const container = ref<HTMLDivElement>(null);
 
     onMounted(() => {
-      watchEffect(() => {
-        const { width } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + "px";
-        const { left: left1 } = container.value.getBoundingClientRect();
-        const { left: left2 } = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + "px";
-      });
+      watchEffect(
+        () => {
+          const { width } = selectedItem.value.getBoundingClientRect();
+          indicator.value.style.width = width + "px";
+          const { left: left1 } = container.value.getBoundingClientRect();
+          const { left: left2 } = selectedItem.value.getBoundingClientRect();
+          const left = left2 - left1;
+          indicator.value.style.left = left + "px";
+        },
+        { flush: "post" }
+      );
     });
 
     defaults.forEach((tag) => {
