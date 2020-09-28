@@ -3,13 +3,13 @@
 Open your terminal and run:
 
 ```
-npm install r-ui
+npm install rui-2020
 ```
 
 or
 
 ```
-yarn add r-ui
+yarn add rui-2020
 ```
 
 Next: [Get Started](#/doc/get-started)
