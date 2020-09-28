@@ -4,7 +4,9 @@ Tabs demo
 <template>
   <Tabs v-model:selected="x">
     <Tab title="nav1">Content 1</Tab>
-    <Tab title="nav22222222222222222">Content 2</Tab>
+    <Tab title="nav2">Content 2</Tab>
+    <Tab title="nav3">Content 3</Tab>
+    <Tab title="nav4">Content 4</Tab>
   </Tabs>
 </template>
 <script>

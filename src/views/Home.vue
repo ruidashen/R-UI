@@ -55,7 +55,7 @@ $border-radius: 4px;
     rgba(85, 77, 171, 1) 0%,
     rgba(99, 85, 250, 1) 100%
   );
-  clip-path: ellipse(80% 60% at 50% 40%);
+  // clip-path: ellipse(80% 60% at 50% 40%);
 }
 .banner {
   color: #ffffff;

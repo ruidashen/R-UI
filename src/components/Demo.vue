@@ -5,9 +5,16 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="codeVisible = !codeVisible">View code</Button>
+      <Button @click="hideCode" v-if="codeVisible">Hide code</Button>
+      <Button @click="showCode" v-else>Show code</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
+      <p>
+        In your code please import the components from "rui-2020".
+        <br>
+        For example:
+        <pre class="language-javascript">import {Switch} from "rui-2020"</pre>
+      </p>
       <pre class="language-html" v-html="html" />
     </div>
   </div>
@@ -33,11 +40,15 @@ export default {
         "html"
       );
     });
+    const showCode = () => (codeVisible.value = true);
+    const hideCode = () => (codeVisible.value = false);
     let codeVisible = ref(false);
     return {
       Prism,
       html,
       codeVisible,
+      showCode,
+      hideCode,
     };
   },
 };
@@ -45,30 +56,24 @@ export default {
 
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
-
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
-
   > h2 {
     font-size: 20px;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
-
   &-component {
     padding: 16px;
   }
-
   &-actions {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
   }
-
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
-
     > pre {
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;

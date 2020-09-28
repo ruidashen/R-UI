@@ -84,6 +84,22 @@ export default {
 }
 
 aside {
+  @media (max-width: 500px) {
+    width: 100%;
+
+    animation: fade 500ms;
+    animation-fill-mode: forwards;
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 10;
+      }
+    }
+  }
+
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 165px;

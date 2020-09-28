@@ -6,8 +6,8 @@ import SwitchDemo from "./components/SwitchDemo.vue";
 import ButtonDemo from "./components/ButtonDemo.vue";
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
-import DocDemo from "./components/DocDemo.vue";
 import Markdown from "./components/Markdown.vue";
+
 const md = (filename) =>
   h(Markdown, { path: `../markdown/${filename}.md`, key: filename });
 const history = createWebHashHistory();
@@ -28,7 +28,10 @@ export const router = createRouter({
         },
         {
           path: "intro",
-          component: md("intro"),
+          component: h(Markdown, {
+            path: `../markdown/intro.md`,
+            key: "intro",
+          }),
         },
         {
           path: "get-started",

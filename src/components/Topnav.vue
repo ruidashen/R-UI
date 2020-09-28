@@ -34,9 +34,7 @@ export default {
     const isInDocs = ref(false);
     onMounted(() => {
       console.log(topnav);
-      isInDocs.value =
-        document.URL.includes("doc") &&
-        topnav.value.getBoundingClientRect().width <= 500;
+      isInDocs.value = topnav.value.getBoundingClientRect().width <= 500;
     });
 
     return { toggleMenu, isInDocs, topnav };
